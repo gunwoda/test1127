@@ -1,13 +1,11 @@
 package com.gunwoda.test1127;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(originPatterns = "http://locahost:3000")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
@@ -17,7 +15,8 @@ public class UserController {
         userService.save(userDTO);
         return "success";
     }
-    @GetMapping("/findall")
+    @CrossOrigin(originPatterns = "*")
+    @GetMapping("/")
     public List<UserDTO> findAll() {
         return userService.findAllUsers();
     }
