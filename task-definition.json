@@ -1,0 +1,57 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-2:872515296683:task-definition/testservice:1",
+  "containerDefinitions": [
+    {
+      "name": "testservice",
+      "image": "nginx",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "testservice-80-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "systemControls": []
+    }
+  ],
+  "family": "testservice",
+  "executionRoleArn": "arn:aws:iam::872515296683:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 1,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": [
+    "EC2",
+    "FARGATE"
+  ],
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2024-11-27T08:17:52.402Z",
+  "registeredBy": "arn:aws:iam::872515296683:root",
+  "tags": []
+}
