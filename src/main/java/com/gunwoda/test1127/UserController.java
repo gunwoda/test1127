@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(originPatterns = "http://locahost:3000")
+@CrossOrigin(originPatterns = "*")
 @RestController
 @RequiredArgsConstructor
 public class UserController {
