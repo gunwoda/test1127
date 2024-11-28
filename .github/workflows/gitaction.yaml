@@ -39,6 +39,23 @@ jobs:
         with:
           arguments: build
 
+      #도커 허브 로그인
+      - name: Login To DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{secrets.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_TOKEN}}
+
+      #이미지 빌드 및 업로드
+      - name: Image Build and Release to DockerHub
+        env:
+          NAME: ${{secrets.DOCKERHUB_USERNAME}}
+          REPO: ${{secrets.DOCKERHUB_REPOSITORY}}
+        run: |
+          docker build -t $REPO .
+          docker tag $REPO:latest $NAME/$REPO:latest
+          docker push $NAME/$REPO:latest
+
       # 3. AWS 로그인
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
